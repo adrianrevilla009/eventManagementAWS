@@ -1,2 +1,3 @@
-# eventManagementAWS
-Event management app deployed in AWS with S3 java connection
+# Práctica 1 - Solucion
+
+Pasos a seguir:
