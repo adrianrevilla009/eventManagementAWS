@@ -34,14 +34,14 @@ public class S3ImageService implements ImageService {
         String fileName = multiPartFile.getOriginalFilename();
         File file = new File(System.getProperty("java.io.tmpdir")+"/"+fileName);
         multiPartFile.transferTo(file);
-        PutObjectResponse putObjectResponse = s3.putObject(
+        s3.putObject(
                 PutObjectRequest.builder()
                         .bucket(this.bucketName)
                         .key(fileName)
                         .build(),
                 RequestBody.fromFile(file)
         );
-        return putObjectResponse.toString();
+        return file.getAbsolutePath();
     }
 
     @Override
